@@ -159,3 +159,183 @@ ul.shopping-cart .cart-itm .remove-itm a{
 	margin: 10px 1px;
 	float: right;
 }
+
+
+.classList {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f4f4f4;
+}
+
+.container-ClassList {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#h1id01 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  background: teal;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.filters button {
+  padding: 10px;
+  background: blue;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+@media(min-width: 600px) {
+  .filters {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.card .enquiry-id {
+  color: orange;
+  font-weight: bold;
+}
+
+.course-badge a {
+  text-decoration: none;
+  color: green; /* You can set your preferred color */
+  font-weight: bold;
+}
+
+.course-badge a:hover {
+  color: darkgreen;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 25px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background: #eee;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: blue;
+  color: white;
+}
+
+.menu-container {
+  position: relative;
+  text-align: right;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+  z-index: 1;
+  min-width: 100px;
+}
+
+.dropdown-menu button {
+  padding: 8px 12px;
+  background: white;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background: #eee;
+}
+
+.menu-link {
+  padding: 8px 12px;
+  display: block;
+  background: white;
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-link:hover {
+  background: #eee;
+  color: blue;
+}
+
+

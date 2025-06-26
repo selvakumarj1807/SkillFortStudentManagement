@@ -33,25 +33,26 @@ $category = $_GET["category"];
 
     </div>
 
-    <div id="table-content" class="table-responsive"> <!-- Add responsive wrapper here -->
-      <table id="bootstrapdatatable" class="table table-hover table-bordered table-striped">
-        <thead class="thead-light">
-          <tr>
-            <th>Id</th>
-            <th>Course</th>
-            <th>Batch Number</th>
-            <th>Class Name</th>
-            <th>Whatsapp Group Link</th>
-            <th>Class Time</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
+    <div class="classList">
+      <div class="container-ClassList">
+        <h1 id="h1id01">Today Python Class</h1>
+
+        <div class="summary">
+          <div class="summary-card">
+            <h2 id="enquiryCount">0</h2>
+          </div>
+        </div>
+
+        <div class="filters">
+          <input type="text" id="searchInput" placeholder="Search Batch Number, Date or Time" />
+          <button id="resetBtn">Reset Filters</button>
+        </div>
+
+        <div id="enquiryList" class="card-grid">
+
           <?php
           $slno = 0;
-          $result = mysqli_query($conn, "SELECT * FROM `products` WHERE `course`='$category' ");
+          $result = mysqli_query($conn, "SELECT * FROM `products` WHERE `course`='$category'  ORDER BY `id` DESC");
 
           while ($row_result = mysqli_fetch_array($result)) {
             $slno++;
@@ -64,26 +65,44 @@ $category = $_GET["category"];
             $whatsappLink = $row_result['whatsappLink'];
             $end_date = $row_result['end_date'];
           ?>
-            <tr>
-              <td><?php echo $slno; ?></td>
-              <td><?php echo $course; ?></td>
-              <td><?php echo $batch_number; ?></td>
-              <td><?php echo $class_name; ?></td>
-              <td><a href="<?php echo $whatsappLink; ?>" target="_blank"><?php echo $whatsappLink; ?></a></td>
-              <td><?php echo $class_time; ?></td>
-              <td><?php echo $start_date; ?></td>
-              <td><?php echo $end_date; ?></td>
-              <td>
-                <a href="product_edit.php?id=<?php echo $row_result['id']; ?>"> <i class="fa fa-edit" style="color:red"></i></a> &nbsp;&nbsp;&nbsp;
-                <a href="product_remove.php?id=<?php echo $row_result['id']; ?>&category=<?php echo $row_result['course']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a><br>
-                <a href="#" style="color: orange;">Student Details</a>
-              </td>
-            </tr>
+
+            <div class="card">
+              <div class="menu-container">
+                <button class="menu-btn">⋮</button>
+                <div class="dropdown-menu">
+                  <a href="#" class="menu-link edit-link">Edit</a>
+                  <a href="#" class="menu-link delete-link">Delete</a>
+                </div>
+              </div>
+              <h3 class="enquiry-id"><?php echo $class_name; ?></h3>
+              <h4><?php echo $class_time; ?></h4>
+              <div class="course-badge"><a href="<?php echo $whatsappLink; ?>" target="_blank">Whatsapp Group Link</a>
+              </div>
+              <div class="card-footer">
+                <div><strong>Start Date:</strong><br><?php echo date("d/m/Y", strtotime($start_date)); ?></div>
+                <div>
+                  <strong>End Date:</strong><br>
+                  <?php
+                  if (!empty($end_date)) {
+                    echo date("d/m/Y", strtotime($end_date));
+                  } else {
+                    echo "";
+                  }
+                  ?>
+                </div>
+              </div>
+            </div>
+
           <?php
           }
           ?>
-        </tbody>
-      </table> <!-- Proper closing -->
+
+          <!-- You can add more cards similarly -->
+
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+      </div>
     </div>
 
 
