@@ -288,8 +288,8 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
 
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" >
-                  Welcome <?php echo $username; ?> 
+                <a href="#" class="dropdown-toggle">
+                  Welcome <?php echo $username; ?>
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Profile</a></li>
@@ -338,7 +338,8 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
               ?>
                 <li>
                   <a href="product.php?category=<?php echo $category; ?>">
-                    <i class="fa fa-circle-o"></i> <?php echo $category; ?>
+                    <i class="fa fa-book"></i>
+                     <?php echo $category; ?>
                   </a>
                 </li>
               <?php } ?>

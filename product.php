@@ -23,7 +23,7 @@ $category = $_GET["category"];
     <br>
     <section class="content-header">
       <h1>
-        <?php echo $category; ?> Class
+        <b><?php echo $category; ?> Class</b>
       </h1>
     </section>
     <br>
@@ -35,7 +35,7 @@ $category = $_GET["category"];
 
     <div class="classList">
       <div class="container-ClassList">
-        <h1 id="h1id01">Total <?php echo $category; ?> Class</h1>
+        <h3 id="h1id01">Total <?php echo $category; ?> Class</h3>
 
         <div class="summary">
           <div class="summary-card">

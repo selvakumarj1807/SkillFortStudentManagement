@@ -11,13 +11,20 @@ if (!isset($_SESSION['username'])) {
 ?>
 <?php include('header.php') ?>
 
-<!-- Include Bootstrap Datepicker & Timepicker CSS (Optional if not already included) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css">
+<!-- Flatpickr CSS for Date & Time Picker -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<style>
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding: 15px;
+    }
+}
+</style>
 
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>ADD Class</h1>
+        <h1>ADD <?php echo $category; ?> Class</h1>
     </section>
 
     <section class="content">
@@ -36,19 +43,18 @@ if (!isset($_SESSION['username'])) {
                             </div>
 
                             <div class="form-group">
-                                <label for="course">Whatsapp Group Link</label>
+                                <label for="whatsappLink">Whatsapp Group Link</label>
                                 <input type="text" class="form-control" id="whatsappLink" name="whatsappLink" placeholder="Enter Whatsapp Group Link" required>
                             </div>
 
-
                             <div class="form-group">
                                 <label for="class_time">Class Time</label>
-                                <input type="text" class="form-control timepicker" id="class_time" name="class_time" placeholder="Select Class Time" required>
+                                <input type="text" class="form-control" id="class_time" name="class_time" placeholder="Select Class Time" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="start_date">Start Date</label>
-                                <input type="date" class="form-control" id="start_date" name="start_date" required>
+                                <input type="text" class="form-control" id="start_date" name="start_date" placeholder="Select Start Date" required>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -56,7 +62,7 @@ if (!isset($_SESSION['username'])) {
                             
                         </form>
 
-                    </div><!-- /.box-body -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,22 +71,23 @@ if (!isset($_SESSION['username'])) {
 
 <?php include('footer.php') ?>
 
-<!-- Include jQuery, Bootstrap JS, Timepicker JS (Optional if not already included) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
 $(document).ready(function() {
-    
-    // Initialize timepicker with 12-hour format
-    $('.timepicker').timepicker({
-        showMeridian: true,
-        defaultTime: false
+    // Date Picker
+    $("#start_date").flatpickr({
+        dateFormat: "Y-m-d",
+        defaultDate: new Date()
     });
 
-    // Set today's date as default in date field
-    let today = new Date().toISOString().split('T')[0];
-    $('#start_date').val(today);
-
+    // Time Picker with 12-hour format and AM/PM
+    $("#class_time").flatpickr({
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "h:i K",
+        time_24hr: false
+    });
 });
 </script>
