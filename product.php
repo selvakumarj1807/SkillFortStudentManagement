@@ -35,7 +35,7 @@ $category = $_GET["category"];
 
     <div class="classList">
       <div class="container-ClassList">
-        <h1 id="h1id01">Today Python Class</h1>
+        <h1 id="h1id01">Total <?php echo $category; ?> Class</h1>
 
         <div class="summary">
           <div class="summary-card">
@@ -76,7 +76,11 @@ $category = $_GET["category"];
               </div>
               <h3 class="enquiry-id"><?php echo $class_name; ?></h3>
               <h4><?php echo $class_time; ?></h4>
-              <div class="course-badge"><a href="<?php echo $whatsappLink; ?>" target="_blank">Whatsapp Group Link</a>
+              <div class="student-badge">
+                <a href="#" target="_blank">Student Details</a>
+              </div>
+              <div class="course-badge">
+                <a href="<?php echo $whatsappLink; ?>" target="_blank">Whatsapp Group Link</a>
               </div>
               <div class="card-footer">
                 <div><strong>Start Date:</strong><br><?php echo date("d/m/Y", strtotime($start_date)); ?></div>

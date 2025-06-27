@@ -63,14 +63,16 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
     .classList {
       font-family: Arial, sans-serif;
       margin: 20px;
-      background: #f4f4f4;
+      /*background: #f4f4f4;*/
     }
 
     .container-ClassList {
+      /*
       max-width: 1000px;
       margin: 0 auto;
       background: white;
-      padding: 20px;
+      padding: 10px;
+      */
       border-radius: 10px;
     }
 
@@ -158,6 +160,17 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
 
     .course-badge a:hover {
       color: darkgreen;
+    }
+
+    .student-badge a {
+      text-decoration: none;
+      color: blue;
+      /* You can set your preferred color */
+      font-weight: bold;
+    }
+
+    .student-badge a:hover {
+      color: darkblue;
     }
 
     .card-footer {
@@ -275,8 +288,8 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
 
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Welcome <?php echo $username; ?> <b class="caret"></b>
+                <a href="#" class="dropdown-toggle" >
+                  Welcome <?php echo $username; ?> 
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Profile</a></li>
