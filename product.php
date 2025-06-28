@@ -64,14 +64,17 @@ $category = $_GET["category"];
             $start_date = $row_result['start_date'];
             $whatsappLink = $row_result['whatsappLink'];
             $end_date = $row_result['end_date'];
+            $description = $row_result['description'];
           ?>
+
 
             <div class="card">
               <div class="menu-container">
                 <button class="menu-btn">⋮</button>
                 <div class="dropdown-menu">
-                  <a href="#" class="menu-link edit-link">Edit</a>
-                  <a href="#" class="menu-link delete-link">Delete</a>
+                  <a href="product_edit.php?id=<?php echo $item_id; ?>" class="menu-link edit-link">Edit</a>
+                  <a href="product_remove.php?id=<?php echo $item_id; ?>&course=<?php echo urlencode($course); ?>" class="menu-link delete-link" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                  <a href="#" class="menu-link edit-link" data-description="<?php echo htmlspecialchars($description); ?>" onclick="showDescription(this)">Batch Description</a>
                 </div>
               </div>
               <h3 class="enquiry-id"><?php echo $class_name; ?></h3>
@@ -105,6 +108,27 @@ $category = $_GET["category"];
 
         </div>
 
+        <!-- Batch Description Modal -->
+        <div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Batch Description</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span>&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="modalDescriptionText">
+                <!-- Description will be shown here -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <div class="pagination" id="pagination"></div>
       </div>
     </div>
@@ -115,5 +139,12 @@ $category = $_GET["category"];
 </div><!-- /.row -->
 
 
+<script>
+  function showDescription(element) {
+    var description = element.getAttribute('data-description');
+    document.getElementById('modalDescriptionText').innerText = description;
+    $('#descriptionModal').modal('show');
+  }
+</script>
 
 <?php include('footer.php') ?>

@@ -15,12 +15,14 @@ if (!isset($_SESSION['username'])) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 <style>
-@media (max-width: 768px) {
-    .content-wrapper {
-        padding: 15px;
+    @media (max-width: 768px) {
+        .content-wrapper {
+            padding: 15px;
+        }
     }
-}
 </style>
+
+<?php $category = $_GET['category']; ?>
 
 <div class="content-wrapper">
     <section class="content-header">
@@ -33,10 +35,10 @@ if (!isset($_SESSION['username'])) {
                 <div class="box box-warning">
                     <div class="box-body">
 
-                        <?php $category = $_GET['category']; ?>
+
 
                         <form role="form" action="product_save.php" method="POST" enctype="multipart/form-data">
-                            
+
                             <div class="form-group">
                                 <label for="course">Course</label>
                                 <input type="text" class="form-control" id="course" name="course" value="<?php echo $category; ?>" readonly>
@@ -59,7 +61,7 @@ if (!isset($_SESSION['username'])) {
 
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href="product.php?category=<?php echo $category; ?>" class="btn btn-secondary">Back</a>
-                            
+
                         </form>
 
                     </div>
@@ -75,19 +77,19 @@ if (!isset($_SESSION['username'])) {
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script>
-$(document).ready(function() {
-    // Date Picker
-    $("#start_date").flatpickr({
-        dateFormat: "Y-m-d",
-        defaultDate: new Date()
-    });
+    $(document).ready(function() {
+        // Date Picker
+        $("#start_date").flatpickr({
+            dateFormat: "Y-m-d",
+            defaultDate: new Date()
+        });
 
-    // Time Picker with 12-hour format and AM/PM
-    $("#class_time").flatpickr({
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: "h:i K",
-        time_24hr: false
+        // Time Picker with 12-hour format and AM/PM
+        $("#class_time").flatpickr({
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "h:i K",
+            time_24hr: false
+        });
     });
-});
 </script>

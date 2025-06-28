@@ -1,7 +1,7 @@
 <?php
 	require('db.php');
 	$id=$_REQUEST['id'];
-	$category=$_REQUEST['category'];
+	$course=$_REQUEST['course'];
 
 
 
@@ -11,7 +11,7 @@ if($conn->query($sql)==TRUE)
 echo "<script>alert('Deleted Successfully!');</script>";
 
 echo "<script type='text/javascript'>
-window.location.href='product.php?category=$category';
+window.location.href='product.php?category=$course';
 </script>";}
 else
 {

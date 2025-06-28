@@ -109,8 +109,8 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
                     <td><?php echo $category; ?></td>
                     <td><img class="img-responsive" width="40" height="55" src="Upload/<?php echo $image; ?>" /></td>
                     <td class="text-center">
-                      <a href="edit_course.php?id=<?php echo $row_result['id']; ?>">Edit<i class="fa fa-edit" style="color:red"></i></a> &nbsp;&nbsp;&nbsp;
-                      <a href="remove_course.php?id=<?php echo $row_result['id']; ?>">Remove<i class="fa fa-trash" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+                      <a href="edit_course.php?id=<?php echo $row_result['id']; ?>">Edit<i class="fa fa-edit" style="color:green"></i></a> &nbsp;&nbsp;&nbsp;
+                      <a href="remove_course.php?id=<?php echo $row_result['id']; ?>" onclick="return confirm('Are you sure you want to delete this item?');">Remove<i class="fa fa-trash" aria-hidden="true" style="color:red"></i></a>&nbsp;&nbsp;&nbsp;
                     </td>
 
 
