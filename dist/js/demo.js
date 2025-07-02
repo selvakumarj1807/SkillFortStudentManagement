@@ -3,7 +3,7 @@ $(function () {
   /* For demo purposes */
   var demo = $("<div />").css({
     position: "fixed",
-    top: "100px",
+    /*top: "100px",*/
     right: "0",
     background: "#fff",
     "border-radius": "5px 0px 0px 5px",

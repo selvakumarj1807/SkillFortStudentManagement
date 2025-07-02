@@ -80,7 +80,7 @@ $category = $_GET["category"];
               <h3 class="enquiry-id"><?php echo $class_name; ?></h3>
               <h4><?php echo $class_time; ?></h4>
               <div class="student-badge">
-                <a href="#" target="_blank">Student Details</a>
+                <a href="studentDetails.php?id=<?php echo $item_id; ?>">Student Details</a>
               </div>
               <div class="course-badge">
                 <a href="<?php echo $whatsappLink; ?>" target="_blank">Whatsapp Group Link</a>

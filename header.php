@@ -90,7 +90,7 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
     .summary-card {
       background: teal;
       color: white;
-      padding: 15px 30px;
+      padding: 5px 25px;
       border-radius: 10px;
       text-align: center;
     }
@@ -252,6 +252,44 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
       background: #eee;
       color: blue;
     }
+
+    .studentDetailsContainer {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .tile-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .tile {
+      flex: 1 1 200px;
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      min-width: 200px;
+    }
+
+    .tile:hover {
+      background-color: #0056b3;
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 600px) {
+      .tile {
+        flex: 1 1 100%;
+      }
+    }
   </style>
 
 </head>
@@ -339,7 +377,7 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
                 <li>
                   <a href="product.php?category=<?php echo $category; ?>">
                     <i class="fa fa-book"></i>
-                     <?php echo $category; ?>
+                    <?php echo $category; ?>
                   </a>
                 </li>
               <?php } ?>
