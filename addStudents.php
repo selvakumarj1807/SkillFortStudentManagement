@@ -62,7 +62,7 @@ while ($row_result = mysqli_fetch_array($result)) {
                                 <input type="hidden" name="class_time" value="<?php echo $class_time; ?>" />
                                 <input type="hidden" name="start_date" value="<?php echo $start_date; ?>" />
                                 <input type="hidden" name="whatsappLink" value="<?php echo $whatsappLink; ?>" />
-                               
+
                                 <input type="hidden" name="batchId" value="<?php echo $id; ?>" />
 
                                 <div class="form-group">
@@ -78,6 +78,11 @@ while ($row_result = mysqli_fetch_array($result)) {
                                 <div class="form-group">
                                     <label for="gmail">Gmail</label>
                                     <input type="text" class="form-control" id="gmail" name="gmail" placeholder="Enter Gmail" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="start_date">Join Date</label>
+                                    <input type="text" class="form-control" id="join_date" name="join_date" placeholder="Select Join Date" required>
                                 </div>
 
                                 <div class="form-group">
@@ -112,7 +117,7 @@ while ($row_result = mysqli_fetch_array($result)) {
 <script>
     $(document).ready(function() {
         // Date Picker
-        $("#start_date").flatpickr({
+        $("#join_date").flatpickr({
             dateFormat: "Y-m-d",
             defaultDate: new Date()
         });
