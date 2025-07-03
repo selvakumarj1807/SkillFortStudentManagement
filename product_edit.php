@@ -54,6 +54,7 @@ while ($row_result = mysqli_fetch_array($result)) {
 
               <form role="form" action="product_update.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $item_id; ?>">
+                <input type="hidden" name="oldClassName" value="<?php echo $class_name; ?>">
 
                 <div class="form-group">
                   <label for="course">Course</label>

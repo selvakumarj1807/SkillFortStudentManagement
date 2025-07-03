@@ -17,6 +17,8 @@ $join_date=$_POST['join_date'];
 
 $batchId=$_POST['batchId'];
 
+$action='Active';
+
 
 $res = mysqli_query($conn,"Select * from student where class_name='$class_name'");  
 $no = mysqli_num_rows($res)+1;
@@ -24,7 +26,7 @@ $no = mysqli_num_rows($res)+1;
 $studentId= "SID0" . $no;
 
 
-$sql="INSERT INTO `student`(`studentId`, `studentName`, `mobile`, `gmail`, `referBy`, `description`, `course`, `class_name`, `class_time`, `start_date`, `whatsappLink`, `join_date`) VALUES('$studentId','$studentName','$mobile','$gmail','$referBy','$description','$course', '$class_name','$class_time','$start_date','$whatsappLink','$join_date')";
+$sql="INSERT INTO `student`(`studentId`, `studentName`, `mobile`, `gmail`, `referBy`, `description`, `course`, `class_name`, `class_time`, `start_date`, `whatsappLink`, `join_date`, `action`) VALUES('$studentId','$studentName','$mobile','$gmail','$referBy','$description','$course', '$class_name','$class_time','$start_date','$whatsappLink','$join_date','$action')";
 
 	
 if($conn->query($sql)==TRUE)

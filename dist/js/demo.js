@@ -194,8 +194,17 @@ function applyFilters() {
     const endDateDiv = Array.from(card.querySelectorAll(".card-footer div"))
       .find(div => div.textContent.toLowerCase().includes("end date"));
 
+    const joinDateDiv = Array.from(card.querySelectorAll(".card-footer div"))
+      .find(div => div.textContent.toLowerCase().includes("join date"));
+    const leaveDateDiv = Array.from(card.querySelectorAll(".card-footer div"))
+      .find(div => div.textContent.toLowerCase().includes("leave date"));
+
+
     const startDate = startDateDiv ? startDateDiv.textContent.toLowerCase() : "";
     const endDate = endDateDiv ? endDateDiv.textContent.toLowerCase() : "";
+
+    const joinDate = joinDateDiv ? joinDateDiv.textContent.toLowerCase() : "";
+    const leaveDate = leaveDateDiv ? leaveDateDiv.textContent.toLowerCase() : "";
 
     return (
       name.includes(term) ||
@@ -203,7 +212,9 @@ function applyFilters() {
       course.includes(term) ||
       time.includes(term) ||
       startDate.includes(term) ||
-      endDate.includes(term)
+      endDate.includes(term)||
+      joinDate.includes(term) ||
+      leaveDate.includes(term)
     );
   });
 
