@@ -17,12 +17,20 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
 
 <?php
 $class_name = $_GET["class_name"];
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+
+if (isset($_GET['class_id'])) {
+    $id = $_GET['class_id'];
+}
 ?>
 <div class="content-wrapper">
     <div class="container-table">
         <br>
         <div class="form-group float-right">
-            <button class="btn btn-success" onclick="history.back();">Back</button>
+            <a href="studentDetails.php?id=<?php echo $id; ?>"><button class="btn btn-success me-2 mb-2">Back</button></a>
         </div>
         <?php
         $slno = 0;
@@ -73,7 +81,8 @@ $class_name = $_GET["class_name"];
                                 <button class="menu-btn">⋮</button>
                                 <div class="dropdown-menu">
                                     <a href="#" class="menu-link edit-link" data-description="<?php echo htmlspecialchars($description); ?>" onclick="showDescription(this)">Stuedent Description</a>
-                                    <a href="studentSinglePage.php?id=<?php echo $item_id; ?>" class="menu-link edit-link">Student Details</a>
+                                    <a href="studentSinglePage.php?id=<?php echo $item_id; ?>&class_name=<?php echo $class_name; ?>&class_id=<?php echo $id; ?>" class="menu-link edit-link">Student Details</a>
+                                    <a href="studentDelete.php?id=<?php echo $item_id; ?>&class_name=<?php echo $class_name; ?>&class_id=<?php echo $id; ?>" class="menu-link delete-link" onclick="return confirm('Are you sure you want to delete this student?');">Delete Student</a>
                                 </div>
                             </div>
                             <h3 class="enquiry-id"><?php echo $studentName; ?></h3>

@@ -10,7 +10,26 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 <?php include('header.php') ?>
-<?php $id = $_GET['id']; ?>
+<?php
+//$id = $_GET['id'];
+//$class_name = $_GET['class_name'];
+
+?>
+<?php
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+   
+} 
+if (isset($_GET['class_name'])) {
+    $class_name = $_GET['class_name'];
+} 
+
+if (isset($_GET['class_id'])) {
+    $class_id = $_GET['class_id'];
+} 
+?>
+
 
 <style>
     .studentDetailsContainer {
@@ -31,9 +50,9 @@ if (!isset($_SESSION['username'])) {
     <div class="container-fluid mt-3">
         <br>
         <div class="d-flex flex-wrap justify-content-end mb-3 gap-2">
-            <button class="btn btn-success me-2 mb-2" onclick="history.back();">Back</button>
-            <a href="studentEdit.php?id=<?php echo $id; ?>"><button class="btn btn-primary me-2 mb-2">Edit</button></a>
-            <a href="studentDelete.php?id=<?php echo $id; ?>"><button class="btn btn-danger mb-2">Delete</button></a>
+            <a href="viewStudents.php?class_name=<?php echo $class_name; ?>&class_id=<?php echo $class_id; ?>"><button class="btn btn-success me-2 mb-2">Back</button></a>
+
+            <a href="studentEdit.php?id=<?php echo $id; ?>&class_id=<?php echo $class_id; ?>"><button class="btn btn-primary me-2 mb-2">Edit</button></a>
         </div>
 
 

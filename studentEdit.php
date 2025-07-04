@@ -22,7 +22,11 @@ if (!isset($_SESSION['username'])) {
     }
 </style>
 
-<?php $id = $_GET['id']; ?>
+<?php
+ $id = $_GET['id']; 
+ $class_id = $_GET['class_id'];
+ ?>
+
 <?php
 $slno = 0;
 $result = mysqli_query($conn, "SELECT * FROM `student` WHERE id='$id'");
@@ -94,7 +98,7 @@ while ($row_result = mysqli_fetch_array($result)) {
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="studentDetails.php?id=<?php echo $id; ?>" class="btn btn-secondary">Back</a>
+                                <a href="studentSinglePage.php?id=<?php echo $id; ?>&class_name=<?php echo $class_name; ?>&class_id=<?php echo $class_id; ?>" class="btn btn-secondary">Back</a>
 
                             </form>
 

@@ -62,7 +62,7 @@ while ($row_result = mysqli_fetch_array($result)) {
                                 <input type="hidden" name="class_time" value="<?php echo $class_time; ?>" />
                                 <input type="hidden" name="start_date" value="<?php echo $start_date; ?>" />
                                 <input type="hidden" name="whatsappLink" value="<?php echo $whatsappLink; ?>" />
-
+                                <input type="hidden" name="end_date" value="<?php echo $end_date; ?>" />
                                 <input type="hidden" name="batchId" value="<?php echo $id; ?>" />
 
                                 <div class="form-group">
