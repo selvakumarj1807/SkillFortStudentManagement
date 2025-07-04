@@ -23,9 +23,10 @@ if (!isset($_SESSION['username'])) {
 </style>
 
 <?php
- $id = $_GET['id']; 
- $class_id = $_GET['class_id'];
- ?>
+$id = $_GET['id'];
+$class_id = $_GET['class_id'];
+$class_name = $_GET['class_name'];
+?>
 
 <?php
 $slno = 0;
@@ -38,14 +39,16 @@ while ($row_result = mysqli_fetch_array($result)) {
     $class_name = $row_result['class_name'];
     $class_time = $row_result['class_time'];
     $start_date = $row_result['start_date'];
-    
+
     $studentName = $row_result['studentName'];
     $mobile = $row_result['mobile'];
     $gmail = $row_result['gmail'];
     $referBy = $row_result['referBy'];
     $join_date = $row_result['join_date'];
     $description = $row_result['description'];
-    
+    $leave_date = $row_result['leave_date'];
+    $leave_reason = $row_result['deleteReason'];
+
 ?>
 
     <div class="content-wrapper">
@@ -66,6 +69,8 @@ while ($row_result = mysqli_fetch_array($result)) {
                         <div class="box-body">
                             <form role="form" action="editStudent_save.php" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="id" value="<?php echo $item_id; ?>" />
+                                <input type="hidden" name="class_id" value="<?php echo $class_id; ?>" />
+                                <input type="hidden" name="class_name" value="<?php echo $class_name; ?>" />
 
                                 <div class="form-group">
                                     <label for="studentName">Student Name</label>
@@ -97,6 +102,20 @@ while ($row_result = mysqli_fetch_array($result)) {
                                     <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter Student Description"><?php echo $description; ?></textarea>
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="start_date">Leave Date</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="leave_date" name="leave_date" value="<?php echo $leave_date; ?>" placeholder="Select Leave Date">
+                                        <button type="button" class="btn btn-secondary" id="clearDate" style="margin: 20px;">None</button>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="referBy">Leave Reason</label>
+                                    <input type="text" class="form-control" id="leave_reason" name="leave_reason" value="<?php echo $leave_reason; ?>" placeholder="Enter Leave Reason">
+                                </div>
+
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="studentSinglePage.php?id=<?php echo $id; ?>&class_name=<?php echo $class_name; ?>&class_id=<?php echo $class_id; ?>" class="btn btn-secondary">Back</a>
 
@@ -123,6 +142,15 @@ while ($row_result = mysqli_fetch_array($result)) {
             dateFormat: "Y-m-d",
             defaultDate: new Date()
         });
+
+        $("#leave_date").flatpickr({
+            dateFormat: "Y-m-d",
+        });
+
+        $("#clearDate").click(function() {
+            $("#leave_date").val(""); // Clear the input
+        });
+
 
         // Time Picker with 12-hour format and AM/PM
         $("#class_time").flatpickr({

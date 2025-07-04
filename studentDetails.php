@@ -12,11 +12,9 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
 
 ?>
 
-<?php $category = $_GET['category'] ?>
 
 <?php include('header.php') ?>
 <div class="content-wrapper">
-    <button class="btn btn-success me-2 mb-2" onclick="history.back();" style="margin: 30px;">Back</button>
 
     <?php
     $slno = 0;

@@ -52,7 +52,7 @@ if (isset($_GET['class_id'])) {
         <div class="d-flex flex-wrap justify-content-end mb-3 gap-2">
             <a href="viewStudents.php?class_name=<?php echo $class_name; ?>&class_id=<?php echo $class_id; ?>"><button class="btn btn-success me-2 mb-2">Back</button></a>
 
-            <a href="studentEdit.php?id=<?php echo $id; ?>&class_id=<?php echo $class_id; ?>"><button class="btn btn-primary me-2 mb-2">Edit</button></a>
+            <a href="studentEdit.php?id=<?php echo $id; ?>&class_id=<?php echo $class_id; ?>&class_name=<?php echo $class_name; ?>"><button class="btn btn-primary me-2 mb-2">Edit</button></a>
         </div>
 
 

@@ -35,11 +35,10 @@ if (isset($_GET['class_id'])) {
 
             <a href="viewStudents.php?class_name=<?php echo $class_name; ?>&id=<?php echo $id; ?>"><button class="btn btn-primary me-2 mb-2">Current Student List</button></a>
             <a href="previousStudentList.php?id=<?php echo $id; ?>&class_name=<?php echo $class_name; ?>"><button class="btn btn-primary me-2 mb-2">Previous Student List</button></a>
-
         </div>
         <?php
         $slno = 0;
-        $result = mysqli_query($conn, "SELECT * FROM `student` WHERE `class_name`='$class_name' and `action`='Active' ORDER BY `id` DESC");
+        $result = mysqli_query($conn, "SELECT * FROM `student` WHERE `class_name`='$class_name' and `action`='Inactive' ORDER BY `id` DESC");
 
         while ($row_result = mysqli_fetch_array($result)) {
             $slno++;
@@ -65,7 +64,7 @@ if (isset($_GET['class_id'])) {
             <div class="classList">
                 <div class="container-ClassList">
                     <b>
-                        Current Students in <span style="color: #007bff;"><?php echo $class_name; ?></span>
+                        Previous Students in <span style="color: #007bff;"><?php echo $class_name; ?></span>
                     </b>
                     <b>
                         <h2 id="h1id01">Total <?php echo $class_name; ?> Students</h2>
