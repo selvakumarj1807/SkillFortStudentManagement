@@ -102,7 +102,7 @@ $id = $_GET['id'] ?? ($_GET['class_id'] ?? '');
 
                 <button type="submit" name="action" value="view" class="btn btn-primary w-100 w-md-auto">View Attendance</button>
 
-                <button type="submit" name="action" value="download" formaction="download_attendance_csv.php" class="btn btn-success w-100 w-md-auto">Download CSV</button>
+                <button type="submit" name="action" value="download" formaction="download_attendance_csv.php?class_name=<?php echo $class_name; ?>" class="btn btn-success w-100 w-md-auto">Download CSV</button>
 
             </form>
 
@@ -147,7 +147,7 @@ $id = $_GET['id'] ?? ($_GET['class_id'] ?? '');
                                 $slno++;
                                 echo "<tr>
                             <td>{$slno}</td>
-                            <td>{$row['date']}</td>
+                            <td>" . date("d/m/Y", strtotime($row['date'])) . "</td>
                             <td>{$row['student_name']}</td>
                             <td><a href='tel:{$row['mobile']}'>{$row['mobile']}</a></td>
                             <td>{$row['status']}</td>

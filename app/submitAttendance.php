@@ -7,8 +7,11 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
+
+
 if (isset($_POST['date']) && isset($_POST['status'])) {
     $date = $_POST['date'];
+    $class_name = mysqli_real_escape_string($conn, $_POST['class_name']);
 
     foreach ($_POST['status'] as $studentId => $status) {
         
@@ -20,8 +23,8 @@ if (isset($_POST['date']) && isset($_POST['status'])) {
         $checkResult = mysqli_query($conn, $checkQuery);
 
         if (mysqli_num_rows($checkResult) == 0) {
-            $insertQuery = "INSERT INTO attendance (student_id, student_name, mobile, date, status) 
-                            VALUES ($studentId, '$studentName', '$mobile', '$date', '$status')";
+            $insertQuery = "INSERT INTO attendance (student_id, student_name, mobile, date, status, class_name) 
+                            VALUES ($studentId, '$studentName', '$mobile', '$date', '$status', '$class_name')";
             mysqli_query($conn, $insertQuery);
         }
     }

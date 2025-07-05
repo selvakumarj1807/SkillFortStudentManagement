@@ -73,6 +73,7 @@ if (isset($_GET['class_id'])) {
                     <div class="mb-3" style="width: 300px;margin-bottom: 20px;">
                         <label for="date" class="form-label">Select Date:</label>
                         <input type="date" name="date" id="date" class="form-control" value="<?php echo $today; ?>" required>
+                        <input type="hidden" name="class_name" value="<?php echo $class_name; ?>">
                     </div>
 
                     <div class="table-responsive">
