@@ -35,6 +35,12 @@ if (isset($_GET['class_id'])) {
 
             <a href="viewStudents.php?class_name=<?php echo $class_name; ?>&id=<?php echo $id; ?>"><button class="btn btn-primary me-2 mb-2">Current Student List</button></a>
             <a href="previousStudentList.php?id=<?php echo $id; ?>&class_name=<?php echo $class_name; ?>"><button class="btn btn-primary me-2 mb-2">Previous Student List</button></a>
+
+            <form method="POST" action="download_previous_students.php" style="display: inline;">
+                <input type="hidden" name="class_name" value="<?php echo $class_name; ?>">
+                <button type="submit" class="btn btn-success mb-2">Download Previous Student List (CSV)</button>
+            </form>
+
         </div>
         <?php
         $slno = 0;
