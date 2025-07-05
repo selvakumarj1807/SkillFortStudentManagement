@@ -48,6 +48,7 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
   <!-- DataTables for Bootstrap 3 -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap.min.css">
 
+  <link rel="icon" type="image/png" href="img/SkillfortAppLogo.png">
   
   <style>
     .anyClass {
