@@ -11,22 +11,12 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
 }
 
 
-$row = mysqli_query($conn, "Select * from user");
-$cont_c = mysqli_num_rows($row);
 
 $row1 = mysqli_query($conn, "Select * from category");
 $cat = mysqli_num_rows($row1);
 //echo $cont;
 
 
-$row4 = mysqli_query($conn, "Select * from cart");
-$car = mysqli_num_rows($row4);
-
-$row5 = mysqli_query($conn, "Select * from checkout");
-$ch = mysqli_num_rows($row5);
-
-$row6 = mysqli_query($conn, "Select * from delivery");
-$de = mysqli_num_rows($row6);
 
 $row7 = mysqli_query($conn, "Select * from products");
 $product = mysqli_num_rows($row7);
