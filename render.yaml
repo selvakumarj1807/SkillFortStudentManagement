@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: skillfort-student-management
+    env: php
+    buildCommand: "composer install"
+    startCommand: "php -S 0.0.0.0:10000 -t ."
