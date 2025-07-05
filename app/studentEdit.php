@@ -149,6 +149,7 @@ while ($row_result = mysqli_fetch_array($result)) {
 
         $("#clearDate").click(function() {
             $("#leave_date").val(""); // Clear the input
+            $("#leave_reason").val("");
         });
 
 

@@ -1,5 +1,3 @@
-
-
 <!-- Latest jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -43,6 +41,19 @@
         });
     });
 </script>
+
+<script>
+    $(document).ready(function() {
+        $('#bootstrapdatatable01').DataTable({
+            "aLengthMenu": [
+                [3, 5, 10, 25, -1],
+                [3, 5, 10, 25, "All"]
+            ],
+            "iDisplayLength": 3
+        });
+    });
+</script>
+
 
 </body>
 

@@ -55,10 +55,10 @@ if (!isset($_SESSION['username'])) // If session is not set then redirect to Log
                     <a href="viewStudents.php?class_name=<?php echo urlencode($class_name); ?>&id=<?php echo $item_id; ?>">
                         <div class="tile"> View Students </div>
                     </a>
-                    <a href="takeAttendance.php">
+                    <a href="takeAttendance.php?class_name=<?php echo urlencode($class_name); ?>&id=<?php echo $item_id; ?>">
                         <div class="tile"> Take Attendance</div>
                     </a>
-                    <a href="viewAttendance.php">
+                    <a href="viewAttendance.php?class_name=<?php echo urlencode($class_name); ?>&id=<?php echo $item_id; ?>">
                         <div class="tile"> View Attendance</div>
                     </a>
                 </div>
